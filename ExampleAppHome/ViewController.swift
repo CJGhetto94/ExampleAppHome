@@ -8,13 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let myName = "Artem"
-
+    let myFirstName = "Artem"
+    let mySecondName = "Rudnev"
+    var firstNameSecondName: String {
+        "\(myFirstName)  \(mySecondName)"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Меня зовут \(myName), Я создал свое первое приложение")
+        print("Меня зовут \(myFirstName), Я создал свое первое приложение")
+        print("Мое полное имя: \(firstNameSecondName)")
     }
-
-
 }
 
+/*
+ В ДЗ не написано про удаление print("Меня зовут....
+ поэтому оставил
+ */
