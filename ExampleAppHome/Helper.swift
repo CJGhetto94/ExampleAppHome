@@ -4,17 +4,15 @@
 //
 //  Created by mac on 04.02.2025.
 //
-import Foundation
 
 class Helper {
-    private var listOfPeople = [Person]()
+    var listOfHumans = [Person]()
     
-    func addPeople(_ people: Person) {
-        listOfPeople.append(people)
+    func addHuman(_ human: Person) {
+        listOfHumans.append(human)
     }
     
-    func getListOfPeople() -> [Person] {
-        listOfPeople
+    func getListOfHumans() -> [Person] {
+        listOfHumans
     }
 }
-

@@ -4,11 +4,11 @@
 //
 //  Created by mac on 03.02.2025.
 //
-import Foundation
+
 
 class Person {
-    var myFirstName: String
-    var mySecondName: String
+    let myFirstName: String
+    let mySecondName: String
     var firstNameSecondName: String {
         "\(myFirstName)  \(mySecondName)"
     } 
