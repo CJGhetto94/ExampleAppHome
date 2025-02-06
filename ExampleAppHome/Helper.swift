@@ -13,12 +13,6 @@ class Helper {
         listOfPeople.append(people)
     }
     
-   /* func printListOfPeople() {
-        for people in listOfPeople {
-            print(people)
-        }
-    }*/
-    
     func getListOfPeople() -> [Person] {
         listOfPeople
     }

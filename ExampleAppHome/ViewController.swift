@@ -9,12 +9,11 @@ import UIKit
 
 
 class ViewController: UIViewController {
-    let helper = Helper()
+    private let helper = Helper()
+    let myPerson = Person(myFirstName: "Artem", mySecondName: "Rudnev")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Меня зовут \(myPerson.myFirstName), Я создал свое первое приложение")
-        print("Мое полное имя: \(myPerson.firstNameSecondName)")
         addPeopleHelper()
     }
     private func addPeopleHelper() {
@@ -27,4 +26,3 @@ class ViewController: UIViewController {
     }
 }
 
-let myPerson = Person(myFirstName: "Artem", mySecondName: "Rudnev")
