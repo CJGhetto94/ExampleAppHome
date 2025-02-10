@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     private func addPeopleHelper() {
         helper.addHuman(Person(myFirstName: "Kirill", mySecondName: "Lemikin"))
         helper.addHuman(Person(myFirstName: "Ilya", mySecondName: "Uvarov"))
+        helper.addHuman(Person(myFirstName: "Gleb", mySecondName: "Gaiger"))
         
         for human in helper.getListOfHumans() {
             print(human.firstNameSecondName)

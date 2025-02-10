@@ -6,7 +6,7 @@
 //
 
 class Helper {
-    var listOfHumans = [Person]()
+    private var listOfHumans = [Person]()
     
     func addHuman(_ human: Person) {
         listOfHumans.append(human)

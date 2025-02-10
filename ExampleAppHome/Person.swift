@@ -11,7 +11,8 @@ class Person {
     let mySecondName: String
     var firstNameSecondName: String {
         "\(myFirstName)  \(mySecondName)"
-    } 
+    }
+    
     init(myFirstName: String, mySecondName: String) {
         self.myFirstName = myFirstName
         self.mySecondName = mySecondName
