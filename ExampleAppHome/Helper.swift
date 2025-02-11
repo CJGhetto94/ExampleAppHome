@@ -6,13 +6,13 @@
 //
 
 class Helper {
-    private var listOfHumans = [Person]()
+    private var listOfHumans = [User]()
     
-    func addHuman(_ human: Person) {
+    func addHuman(_ human: User) {
         listOfHumans.append(human)
     }
     
-    func getListOfHumans() -> [Person] {
+    func getListOfHumans() -> [User] {
         listOfHumans
     }
 }

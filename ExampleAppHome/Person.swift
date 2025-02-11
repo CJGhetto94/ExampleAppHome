@@ -6,9 +6,9 @@
 //
 
 
-class Person {
-    let myFirstName: String
-    let mySecondName: String
+struct Person {
+    var myFirstName: String
+    var mySecondName: String
     var firstNameSecondName: String {
         "\(myFirstName)  \(mySecondName)"
     }
@@ -19,3 +19,14 @@ class Person {
     }
 }
 
+struct User {
+    var loginUser: String
+    var passwordUser: Int
+    var personalInformationOfUser: Person
+    
+    init(loginUser: String, passwordUser: Int, personalInformationOfUser: Person) {
+        self.loginUser = loginUser
+        self.passwordUser = passwordUser
+        self.personalInformationOfUser = personalInformationOfUser
+    }
+}
