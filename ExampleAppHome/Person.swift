@@ -7,15 +7,15 @@
 
 
 struct Person {
-    var myFirstName: String
-    var mySecondName: String
+    var firstName: String
+    var secondName: String
     var firstNameSecondName: String {
-        "\(myFirstName)  \(mySecondName)"
+        "\(firstName)  \(secondName)"
     }
     
-    init(myFirstName: String, mySecondName: String) {
-        self.myFirstName = myFirstName
-        self.mySecondName = mySecondName
+    init(firstName: String, secondName: String) {
+        self.firstName = firstName
+        self.secondName = secondName
     }
 }
 
@@ -23,10 +23,4 @@ struct User {
     var loginUser: String
     var passwordUser: Int
     var personalInformationOfUser: Person
-    
-    init(loginUser: String, passwordUser: Int, personalInformationOfUser: Person) {
-        self.loginUser = loginUser
-        self.passwordUser = passwordUser
-        self.personalInformationOfUser = personalInformationOfUser
-    }
 }
