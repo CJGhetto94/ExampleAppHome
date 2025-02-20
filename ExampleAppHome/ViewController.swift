@@ -16,8 +16,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(ciColor: .magenta)
         view.alpha = CGFloat(0.9)
-        userRepository.returnArrayOfUsers()
-        helper.getListOfHumans()
+        let users = userRepository.returnArrayOfUsers()
+        helper.addFewHumans(user: users)
+        
+        for users in helper.getListOfHumans() {
+            print(users.personalInformationOfUser.firstNameSecondName)
+        }
     }
     
     }

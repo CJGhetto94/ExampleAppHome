@@ -16,28 +16,27 @@ class Helper {
         listOfHumans
     }
     
-    func addFewHumans() {
-     // !!!!!!!!!!!!!!!!!!!!!
+    func addFewHumans(user: [User]) {
+        listOfHumans.append(contentsOf: user)
     }
 }
 
-class UserRepository: Helper {
-    func returnArrayOfUsers() {
-        addHuman(User(loginUser: "CJGhetto",
+class UserRepository {
+    func returnArrayOfUsers() -> [User] {
+        [
+        (User(loginUser: "CJGhetto",
                                 passwordUser: 1234,
-                                personalInformationOfUser: Person(firstName: "Artem", secondName: "Rudnev")))
-        addHuman(User(loginUser: "Raucher",
+              personalInformationOfUser: Person(firstName: "Artem", secondName: "Rudnev"))),
+        (User(loginUser: "Raucher",
                                 passwordUser: 5678,
-                                personalInformationOfUser: Person(firstName: "Kirill", secondName: "Lemikin")))
-        addHuman(User(loginUser: "Nestor",
+              personalInformationOfUser: Person(firstName: "Kirill", secondName: "Lemikin"))),
+        (User(loginUser: "Nestor",
                                 passwordUser: 9876,
-                                personalInformationOfUser: Person(firstName: "Gleb", secondName: "Gaiger")))
-        addHuman(User(loginUser: "bigboi_slime",
+              personalInformationOfUser: Person(firstName: "Gleb", secondName: "Gaiger"))),
+        (User(loginUser: "bigboi_slime",
                                 passwordUser: 1432,
                                 personalInformationOfUser: Person(firstName: "Vladislav", secondName: "Zamyatin")))
+        ]
         
-        for human in getListOfHumans() {
-            print(human.personalInformationOfUser.firstNameSecondName)
         }
     }
-}
