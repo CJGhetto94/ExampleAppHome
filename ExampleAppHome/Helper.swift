@@ -17,7 +17,7 @@ class Helper {
     }
     
     func addFewHumans(user: [User]) {
-        listOfHumans.append(contentsOf: user) 
+        listOfHumans.append(contentsOf: user)
     }
 }
 
