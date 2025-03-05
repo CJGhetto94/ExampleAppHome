@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     private let helper = Helper()
     private let textLabel = UILabel()
     private let imageView =  UIImageView()
+    private let imageContainerView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +20,14 @@ class ViewController: UIViewController {
         updateNumbers()
         
         setupLabel()
-        view.addSubview(textLabel)
+        imageShadowSetup()
         setupImageView()
-        view.addSubview(imageView)
+        view.addSubview(textLabel)
+        view.addSubview(imageContainerView)
         setupView()
+        setupLayout()
+        
+        
     }
     private func updateNumbers() {
         helper.addNumber(Int.random(in: 1...10))
@@ -35,26 +40,42 @@ class ViewController: UIViewController {
         let firstNumber = helper.getNumbers().first
         textLabel.text = firstNumber?.formatted()
         textLabel.font = .systemFont(ofSize: 30, weight: .bold)
-        textLabel.textColor = .red
-        textLabel.frame = CGRect(x: 30, y: 30, width: 100, height: 50)
+        textLabel.textColor = .black
+        textLabel.frame = CGRect(x: 100, y: 120, width: 200, height: 50)
     }
     
-    private func setupImageView() {
-        imageView.image = UIImage(named: "forrestEX13")
-        imageView.frame = CGRect(x: 30, y: 130, width: 100, height: 200)
-        
-        imageView.layer.shadowColor = UIColor.black.cgColor
-        imageView.layer.shadowOffset = CGSize(width: 15, height: 15)
-        imageView.layer.shadowOpacity = 1
-        imageView.layer.shadowRadius = 10
-    }
     private func setupView() {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
-        gradient.colors = [UIColor.green.cgColor, UIColor.blue.cgColor]
+        gradient.colors = [UIColor.darkGray.cgColor, UIColor.yellow.cgColor]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         
         view.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    private func setupImageView() {
+        imageView.image = UIImage(named: "forrestEX13")
+        imageView.frame = imageContainerView.bounds
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
+        imageContainerView.addSubview(imageView)
+    }
+    
+    private func imageShadowSetup() {
+        imageContainerView.frame = CGRect(x: 100, y: 310, width: 200, height: 180)
+        imageContainerView.layer.shadowColor = UIColor.white.cgColor
+        imageContainerView.layer.shadowOffset = CGSize(width: 15, height: 15)
+        imageContainerView.layer.shadowOpacity = 0.8
+        imageContainerView.layer.shadowRadius = 10
+    }
+    
+    private func setupLayout() {
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+             textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
     }
 }
