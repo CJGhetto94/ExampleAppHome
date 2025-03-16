@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     private let textLabel = UILabel()
     private let imageView =  UIImageView()
     private let imageContainerView = UIView()
+    private let stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,9 @@ class ViewController: UIViewController {
         setupLabel()
         imageShadowSetup()
         setupImageView()
-        view.addSubview(textLabel)
-        view.addSubview(imageContainerView)
         setupView()
+        setupStackView()
+        view.addSubview(stackView)
         setupLayout()
         
         
@@ -36,12 +37,22 @@ class ViewController: UIViewController {
             print(number)
         }
     }
+    
+    private func setupStackView() {
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        
+        stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(imageContainerView)
+    }
+    
     private func setupLabel() {
         let firstNumber = helper.getNumbers().first
-        textLabel.text = firstNumber?.formatted()
+        textLabel.text = "\(firstNumber ?? 0)"
         textLabel.font = .systemFont(ofSize: 30, weight: .bold)
         textLabel.textColor = .black
-        textLabel.frame = CGRect(x: 100, y: 120, width: 200, height: 50)
+        textLabel.textAlignment = .center
     }
     
     private func setupView() {
@@ -71,11 +82,23 @@ class ViewController: UIViewController {
     }
     
     private func setupLayout() {
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageContainerView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate(
-            [textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-             textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ])
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant:  100),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: 200),
+            stackView.heightAnchor.constraint(equalToConstant: 400),
+            
+            
+            imageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: imageContainerView.bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: imageContainerView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: imageContainerView.trailingAnchor)
+        ])
+           
     }
 }
