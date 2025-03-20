@@ -5,6 +5,7 @@ class ViewController: UIViewController {
     private let textLabel = UILabel()
     private let shadowView = ShadowView(imageName: "forrestEX13")
     private let secondShadowView = ShadowView(imageName: "forrest")
+    private let thirdShadowView = ShadowView(imageName: "natureTwo")
     private let stackView = UIStackView()
     
     private let helper = Helper()
